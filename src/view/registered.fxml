@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="670.0" prefWidth="555.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.window_con">
+   <children>
+      <Label layoutX="6.0" layoutY="7.0" prefHeight="71.0" prefWidth="303.0" text="欢迎注册QQ" textFill="#ff554fd4">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Label layoutX="140.0" layoutY="100.0" prefHeight="54.0" prefWidth="277.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField layoutX="146.0" layoutY="127.0" prefHeight="54.0" prefWidth="377.0" promptText="账号">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </TextField>
+      <PasswordField layoutX="146.0" layoutY="224.0" prefHeight="54.0" prefWidth="377.0" promptText="6-16位密码，区分大小写">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="62.0" layoutY="136.0" text="账号：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="233.0" text="密码：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="146.0" layoutY="318.0" prefHeight="54.0" prefWidth="377.0" promptText="再次输入密码">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="6.0" layoutY="327.0" text="确认密码：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="418.0" text="邮箱：" textFill="#127bc7e8">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField layoutX="146.0" layoutY="409.0" prefHeight="54.0" prefWidth="377.0" promptText="邮箱">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </TextField>
+      <Label layoutX="30.0" layoutY="509.0" prefHeight="37.0" prefWidth="114.0" text="验证码：" textFill="#147cc7e9">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField layoutX="143.0" layoutY="500.0" prefHeight="54.0" prefWidth="181.0" promptText="输入验证码">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </TextField>
+      <Button layoutX="359.0" layoutY="500.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="164.0" style="-fx-background-color: #1C86EE;" text="获取验证码" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="registered_YesOrNo" layoutX="146.0" layoutY="587.0" mnemonicParsing="false" onAction="#registered_YesOrNo" prefHeight="54.0" prefWidth="377.0" style="-fx-background-color: FF0000;" text="注    册" textFill="#ffffffe9">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="173.0" layoutY="56.0" prefHeight="71.0" prefWidth="303.0" text="每一天，乐在沟通。" textFill="#ff554fd5">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <cursor>
+      <Cursor fx:constant="DISAPPEAR" />
+   </cursor>
+</AnchorPane>
