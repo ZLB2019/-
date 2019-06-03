@@ -1,8 +1,7 @@
-package view;
+package view.CLASS;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -16,11 +15,11 @@ import javafx.stage.Stage;
 public class registered_screen extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AnchorPane root = FXMLLoader.load(getClass().getResource("../view/registered.fxml"));
+        AnchorPane root = FXMLLoader.load(getClass().getResource("../FXML/registered.fxml"));
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image("file:///E:/聊天器图片素材/图标.jpg"));
-        primaryStage.setTitle("注册QQ");
-        primaryStage.setScene(new Scene(root, 555, 670));
+        primaryStage.getIcons().add(new Image("file:///E:/聊天器图片素材/图标.png"));
+        primaryStage.setTitle("注册Chat");
+        primaryStage.setScene(new Scene(root, 555, 624));
         primaryStage.show();
     }
 }
