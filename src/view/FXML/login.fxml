@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b8f4ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login_con">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login_con">
    <children>
       <Label layoutX="93.0" layoutY="83.0" prefHeight="47.0" prefWidth="94.0" text="账号" textFill="#27b125ad">
          <font>
@@ -38,7 +38,7 @@
             <Font size="21.0" />
          </font>
       </PasswordField>
-      <Hyperlink layoutX="389.0" layoutY="224.0" prefHeight="30.0" prefWidth="85.0" text="忘记密码？" textFill="#979396" underline="true" />
+      <Hyperlink fx:id="RetrievePassword" layoutX="389.0" layoutY="224.0" onAction="#OpenRetrievePassword" prefHeight="30.0" prefWidth="85.0" text="忘记密码？" textFill="#979396" underline="true" />
       <Button fx:id="Load" layoutX="323.0" layoutY="277.0" mnemonicParsing="false" onAction="#Load" prefHeight="55.0" prefWidth="100.0" text="登录" textFill="#e01919a7">
          <font>
             <Font size="26.0" />

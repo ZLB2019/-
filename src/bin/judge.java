@@ -1,4 +1,4 @@
-package model;
+package bin;
 
 import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
 

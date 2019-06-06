@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import java.util.Properties;
 import java.util.Random;
@@ -18,9 +18,9 @@ import com.sun.mail.util.MailSSLSocketFactory;
  *
  */
 
-public class mail_con {
+public class mail {
 
-     static String RetrunVerificationCode ="";               //用来校对验证码
+    public static String RetrunVerificationCode ="";               //用来校对验证码
 
     public static void SendMail(String UserMail) throws Exception {
 

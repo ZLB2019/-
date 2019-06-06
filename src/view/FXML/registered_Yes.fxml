@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="259.0" prefWidth="405.0" style="-fx-background-color: #b8f4ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.registered_Yes_con">
+<AnchorPane prefHeight="259.0" prefWidth="405.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.registered_Yes_con">
    <children>
       <Label layoutX="61.0" layoutY="14.0" prefHeight="61.0" prefWidth="284.0" text="恭 喜 你 注 册 成 功" textFill="#fa643ed7" wrapText="true">
          <font>
@@ -38,7 +38,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="UserName" alignment="CENTER" layoutX="99.0" layoutY="136.0" prefHeight="45.0" prefWidth="207.0" textAlignment="JUSTIFY" textFill="#2812dbc7">
+      <Label fx:id="UserName" alignment="CENTER" layoutX="86.0" layoutY="136.0" prefHeight="45.0" prefWidth="235.0" textAlignment="JUSTIFY" textFill="#2812dbc7">
          <font>
             <Font size="35.0" />
          </font>

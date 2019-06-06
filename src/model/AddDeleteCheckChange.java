@@ -3,6 +3,7 @@ package model;
 import controller.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 
@@ -23,11 +24,9 @@ public class AddDeleteCheckChange {
     public static final String pass="zlb19991111";
 
     /**增加*/
-    public static void Add()throws Exception{
+    public static void Insert(String sql)throws Exception{
             Connection conn = null;						    //数据库连接
             Statement stmt = null;							//数据库操作
-            String sql ="insert into userinformation(id,password)"
-                    +" values("+registered_Yes_con.NameInt+",'"+registered_con.passwrod+"')";
             //连接MySQL数据库时，要写上连接的用户名和密码
             Class.forName(driver);							//加载驱动程序
             //连接MySQL数据库时，要写上连接的用户名和密码
@@ -36,5 +35,36 @@ public class AddDeleteCheckChange {
             stmt.execute(sql);								//执行数据库的操作
             stmt.close();									//数据库关闭
             conn.close();
+    }
+    /**查询*/
+    public static User Select(int UserName)throws Exception{
+        User UserMessage = null;
+        Connection conn = null;						    //数据库连接
+        Statement stmt = null;							//数据库操作
+        ResultSet rs = null;                                 //保存查询结果
+        String sql =sql = "select Id,Password,Mail,Signature,HeadPhoto from userinformation where Id="+UserName;
+        //连接MySQL数据库时，要写上连接的用户名和密码
+        Class.forName(driver);							//加载驱动程序
+        //连接MySQL数据库时，要写上连接的用户名和密码
+        conn = DriverManager.getConnection(url, user, pass);
+        stmt = conn.createStatement();					            //实例化Statement对象
+        rs = stmt.executeQuery(sql);								//执行数据库的操作
+        if(rs.next()) {
+//            System.out.println(rs.getInt("Id"));
+//            System.out.println(rs.getString("Password"));
+//            System.out.println(rs.getString("Mail"));
+//            System.out.println(rs.getString("Signature"));
+//            System.out.println(rs.getString("HeadPhoto"));
+
+            UserMessage.setId(rs.getInt("Id"));
+            UserMessage.setPassword(rs.getString("Password"));
+            UserMessage.setMail(rs.getString("Mail"));
+            UserMessage.setSignature(rs.getString("Signature"));
+            UserMessage.setHeadPhoto(rs.getString("HeadPhoto"));
+        }
+
+        stmt.close();								        	//数据库关闭
+        conn.close();
+        return UserMessage;
     }
 }

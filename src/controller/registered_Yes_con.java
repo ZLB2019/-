@@ -1,17 +1,12 @@
 package controller;
 
-import model.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import view.CLASS.login_screen;
-import view.CLASS.registered_Yes_screen;
+import view.CLASS.*;
 
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -28,9 +23,11 @@ public class registered_Yes_con implements Initializable {
 
     /**注册成功界面单击‘确定’：
      * 打开登录界面，并且关闭注册成功界面*/
+    @FXML
     public void registered_Yes_return_load() {
         try {
-            new login_screen().start(new Stage());
+            new windows_screen(). NewWindows(new Stage(),"../FXML/login.fxml","登录",600,400);
+           // new login_screen().start(new Stage());
             Stage stage;
             stage = (Stage) registered_Yes_return_load.getScene().getWindow();
             stage.close();

@@ -10,7 +10,8 @@ public class registered_No_con {
     @FXML
     private Button registered_No_Close;                       /**注册失败界面的‘确定’按钮*/
 
-    public void registered_No_Close() {
+    @FXML
+    public void registered_No_Close(ActionEvent event) {
         try {
             Stage stage;
             stage = (Stage) registered_No_Close.getScene().getWindow();

@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="428.0" style="-fx-background-color: #D1EEEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="428.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Main_con">
    <children>
-      <AnchorPane layoutX="-545.0" layoutY="-157.0" prefHeight="314.0" prefWidth="973.0" style="-fx-background-image: url(file:///D:/美女壁纸来着/好看.jpg);" />
+      <AnchorPane layoutX="-545.0" layoutY="-157.0" prefHeight="314.0" prefWidth="973.0" style="-fx-background-image: url(file:///D:/美女壁纸来着/好看.jpg);">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="89.0" layoutX="577.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:///D:/美女壁纸来着/初音.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="680.0" layoutY="244.0" prefHeight="20.0" prefWidth="263.0" text="我的个性签名" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="680.0" layoutY="194.0" prefHeight="28.0" prefWidth="242.0" text="用户123" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="577.0" layoutY="274.0" prefHeight="28.0" prefWidth="109.0" text="修改个人信息" textFill="#b2afaf" underline="true" />
+         </children></AnchorPane>
+      <Accordion layoutX="6.0" layoutY="157.0" />
+      <Button fx:id="Message" focusTraversable="false" layoutY="157.0" mnemonicParsing="false" onAction="#Message_Action" onMouseEntered="#MessageShowUnderline" onMouseExited="#MessageDelUnderline" prefHeight="45.0" prefWidth="215.0" text=" 消   息">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="Contact" focusTraversable="false" layoutX="214.0" layoutY="157.0" mnemonicParsing="false" onAction="#Contact_Action" onMouseEntered="#ContactShowUnderline" onMouseExited="#ContactDelUnderline" prefHeight="45.0" prefWidth="215.0" text="联 系 人">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="Message_un" layoutX="45.0" layoutY="194.0" prefHeight="7.0" prefWidth="126.0" text="                                                                      ">
+         <font>
+            <Font size="6.0" />
+         </font>
+      </Label>
+      <Label fx:id="Contact_un" layoutX="259.0" layoutY="194.0" prefHeight="9.0" prefWidth="126.0" text="                                                                      ">
+         <font>
+            <Font size="6.0" />
+         </font>
+      </Label>
+      <Accordion layoutY="207.0" prefHeight="505.0" prefWidth="428.0">
+        <panes>
+          <TitledPane animated="false" text="我的好友">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E0FFFF;" />
+            </content>
+               <font>
+                  <Font size="20.0" />
+               </font>
+          </TitledPane>
+          <TitledPane animated="false" text="我的群聊">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E0FFFF;" />
+            </content>
+               <font>
+                  <Font size="20.0" />
+               </font>
+          </TitledPane>
+        </panes>
+      </Accordion>
    </children>
 </AnchorPane>

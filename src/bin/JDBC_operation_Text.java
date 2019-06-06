@@ -1,8 +1,9 @@
-package text;
+package bin;
+
+import controller.registered_Yes_con;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBC_operation_Text {
@@ -20,12 +21,15 @@ public class JDBC_operation_Text {
     public static final String user="root";
     //定义MySQL数据库的连接密码
     public static final String pass="zlb19991111";
+    private static int id =123456999;
+    private static String passwrod="123456";
+    private static String Mail ="1059954375@qq.com";
 
     public static void main(String[] args) throws Exception {
         Connection conn = null;							//数据库连接
         Statement stmt = null;							//数据库操作
-        String sql ="insert into userinformation(id,password)"
-                +" values(12345,'lls19991111')";
+        String sql ="insert into userinformation(id,password,Mail)"
+                +" values("+id+",'"+passwrod+"','"+Mail+"')";
 
         //连接MySQL数据库时，要写上连接的用户名和密码
         Class.forName(driver);							//加载驱动程序

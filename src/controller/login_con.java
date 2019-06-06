@@ -1,10 +1,13 @@
 package controller;
 
+import bin.RetrievePassword_screen;
 import com.mysql.cj.protocol.x.StatementExecuteOk;
 import com.sun.org.apache.xpath.internal.functions.FuncFalse;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -19,6 +22,8 @@ import java.util.ResourceBundle;
 
 public class login_con implements Initializable {
     @FXML
+    private Hyperlink RetrievePassword;                 /**登录界面的‘忘记密码’超链接*/
+    @FXML
     public  TextField UserName;                        /**登录界面的‘账号’输入框*/
     @FXML
     private PasswordField Password;                  /**登录界面的‘密码’输入框*/
@@ -31,8 +36,10 @@ public class login_con implements Initializable {
 
     /**登录界面单击‘注册’：
      * 打开注册界面，并且关闭登录界面*/
+    @FXML
     public void registered() throws Exception{
-            new registered_screen().start(new Stage());
+            new windows_screen(). NewWindows(new Stage(),"../FXML/registered.fxml","注册Chat",555,624);
+            //new registered_screen().start(new Stage());
             Stage stage;
             stage = (Stage) registered.getScene().getWindow();
             stage.close();
@@ -42,20 +49,21 @@ public class login_con implements Initializable {
      * 账号密码错误： 关闭登录界面，弹出登录失败对话框
      * 正确则关闭登录界面，进去Chat主界面
      * */
+    @FXML
     public void Load() throws Exception{
-        int id = 0;
-
         /**特殊判断
          * 当账号或者密码框为 null 时
          * 调用登录失败窗口
          * 并退出此方法
          * */
         if(UserName.getText().equals("")||Password.getText().equals("")) {
-            new login_No_screen().start(new Stage());
-            return;
+            new windows_screen(). NewWindows(new Stage(),"../FXML/login_No.fxml","登录失败",445,235);
+            //new login_No_screen().start(new Stage());
+            return;                                                  //  提前结束此方法，因为已经判定输入错误
         }
 
         /**获取账号*/
+        int id = 0;
         try {
             id = Integer.parseInt(UserName.getText());               //获得 int 型的账号
         } catch (NumberFormatException e) {
@@ -65,37 +73,32 @@ public class login_con implements Initializable {
         /**获取密码*/
         String pass = Password.getText();
 
-        if(judge.judge(id,pass)){                                    //判断输入的账号密码是否匹配
-            new Main_screen().start(new Stage());
+        //用于获取用户信息
+        User UserMessage=AddDeleteCheckChange.Select(id);
+        /**判断输入的账号密码是否匹配
+         * 匹配则进入’主界面‘，关闭’登录‘界面
+         * 不匹配贼弹出’登录失败‘界面
+         */
+        if(!(UserMessage.getId()==0||!(UserMessage.getPassword().equals(pass)))){
+            new windows_screen(). NewWindows(new Stage(),"../FXML/Main.fxml","Chat",412,707);
+            //new Main_screen().start(new Stage());
             Stage stage;
             stage = (Stage) registered.getScene().getWindow();
             stage.close();
         }
         else {
-            new login_No_screen().start(new Stage());
-            Stage stage;
-            stage = (Stage) Load.getScene().getWindow();
-            stage.close();
+            new windows_screen(). NewWindows(new Stage(),"../FXML/login_No.fxml","登录失败",445,235);
+            //new login_No_screen().start(new Stage());
         }
     }
 
-
-    /**登录失败比界面单击‘确定’：
-     * 关闭登录失败界面
-     * 打开登录界面
-     * */
-    public void load_no_return_load() {
-        try {
-            new login_screen().start(new Stage());
-            Stage stage;
-            stage = (Stage) load_no_return_load.getScene().getWindow();
-            stage.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    /**单击‘忘记密码’弹出 RetrievePassword 窗口*/
+    @FXML
+    void OpenRetrievePassword(ActionEvent event) throws Exception{
+        new windows_screen(). NewWindows(new Stage(),"../FXML/RetrievePassword.fxml","找回密码",606,467);
+       //new RetrievePassword_screen().start(new Stage());
     }
-
     public void initialize(URL url, ResourceBundle rb) {
-        UserName.setText("456");
+        UserName.setText(registered_Yes_con.name);
     }
 }
