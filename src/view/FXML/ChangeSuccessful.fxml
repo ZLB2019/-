@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="196.0" prefWidth="348.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChangeSuccessful_con">
+   <children>
+      <Label layoutX="86.0" layoutY="55.0" prefHeight="43.0" prefWidth="177.0" text="修   改   成   功 " textFill="#e5ac27da">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="ChangeSuccessful" layoutX="117.0" layoutY="126.0" mnemonicParsing="false" onAction="#ChangeSuccessful_Close" prefHeight="43.0" prefWidth="114.0" text="确 定">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#10eef2" />
+                  <Stop color="#10eef2" offset="0.2482758620689655" />
+                  <Stop color="#11ecf0" offset="0.8413793103448276" />
+                  <Stop color="#e7b026cc" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

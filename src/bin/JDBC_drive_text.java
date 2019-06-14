@@ -4,7 +4,7 @@ public class JDBC_drive_text {
     public static void main(String[] args){
         try{ //加载MySql的驱动类
             Class.forName("com.mysql.cj.jdbc.Driver");
-           // System.out.println("OK123");
+            System.out.println("OK123");
         }
         catch(ClassNotFoundException e)
         {

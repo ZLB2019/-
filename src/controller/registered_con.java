@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.Hyperlink;
 import model.*;
 
 import javafx.scene.control.PasswordField;
@@ -17,24 +19,37 @@ public class registered_con {
     private Button registered_YesOrNo;                            /**注册界面的‘注册’按钮*/
     @FXML
     private Button GetMail;                                   /**注册界面的‘获取验证码’按钮*/
-
     @FXML
     private TextField mailtext;                                 /**注册界面的‘邮件文本框’*/
     @FXML
     private TextField Verificationode;                          /**注册界面的‘验证码’文本框*/
-
     @FXML
     private PasswordField Password;                         /**注册界面的‘密码’文本框*/
     @FXML
     private PasswordField ConfirmPassword;                  /**注册界面的‘确认密码’文本框*/
+    @FXML
+    private Hyperlink ReturnLogin;                           /**返回登录界面的超链接*/
 
     public static String passwrod = "";
 
     public static  String Mail;
 
-    private String Regular = "[1-9][0-9]{5,9}@qq.com";           /**QQ邮箱的正则表达式*/
+    private String QQMailRegular = "[1-9][0-9]{5,9}@qq.com";           /**QQ邮箱的正则表达式*/
 
       String sql;
+
+
+    @FXML
+    void ReturnLogin_Action(ActionEvent event) {
+        try {
+            Stage stage;
+            stage = (Stage)ReturnLogin.getScene().getWindow();
+            stage.close();
+            new windows_screen(). NewWindows(new Stage(),"../FXML/login.fxml","登录",600,400);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**注册界面单击‘获取验证码’按钮：
      * 发送验证码*/
@@ -43,7 +58,7 @@ public class registered_con {
         /**特殊判断：当              密码位数不是6-16                 或             当密码为空         或             确认密码为空             或                      邮箱格式错误                                   或                两次密码不一致
          * 则调用注册失败窗口
          */
-        if(Password.getText().length()<6||Password.getText().length()>16||Password.getText().equals("") || ConfirmPassword.getText().equals("") || !(Pattern.compile(Regular).matcher(mailtext.getText()).matches())||!(Password.getText().equals(ConfirmPassword.getText()))){
+        if(Password.getText().length()<6||Password.getText().length()>16||Password.getText().equals("") || ConfirmPassword.getText().equals("") || !(Pattern.compile(QQMailRegular).matcher(mailtext.getText()).matches())||!(Password.getText().equals(ConfirmPassword.getText()))){
             try {
                 new windows_screen(). NewWindows(new Stage(),"../FXML/registered_No.fxml","输入有误",392,210);
                 //new registered_No_screen().start(new Stage());
@@ -71,7 +86,7 @@ public class registered_con {
          * 则调用注册失败窗口
          * ps ：为了减少下面 if（）语句里的内容
          */
-        if(Password.getText().length()<6||Password.getText().length()>16||Password.getText().equals("") || ConfirmPassword.getText().equals("") || !(Pattern.compile(Regular).matcher(mailtext.getText()).matches())){
+        if(Password.getText().length()<6||Password.getText().length()>16||Password.getText().equals("") || ConfirmPassword.getText().equals("") || !(Pattern.compile(QQMailRegular).matcher(mailtext.getText()).matches())){
             try {
                 new windows_screen(). NewWindows(new Stage(),"../FXML/registered_No.fxml","输入有误",392,210);
                 //new registered_No_screen().start(new Stage());
@@ -116,14 +131,12 @@ public class registered_con {
 //            System.out.println(passwrod);
 //            System.out.println(Mail);
             try {
-                sql ="insert into userinformation(id,password,Mail)"
-                        +" values("+registered_Yes_con.NameInt+",'"+passwrod+"','"+Mail+"')";
-                AddDeleteCheckChange.Insert(sql);                     /**注册成功，将账号、密码存入数据库*/
+                sql ="insert into userinformation(id,password,Mail,NetName,Born,Sex,Signature,HeadPhoto)"
+                        +" values("+registered_Yes_con.NameInt+",'"+passwrod+"','"+Mail+"','用户"+registered_Yes_con.NameInt+"','1990-01-01','男','快来设置你的个性签名吧！','file:///E:/聊天器图片素材/初始头像.png')";
+                AddDeleteCheckChange.Insert(sql);                     /**注册成功，将账号、密码存入数据库,将网名、出生日期、和性别初始化*/
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
-
-
 }

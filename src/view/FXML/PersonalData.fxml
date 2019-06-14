@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="690.0" prefWidth="421.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PersonalData_con">
+   <children>
+      <ImageView fx:id="Head" fitHeight="103.0" fitWidth="103.0" layoutX="160.0" layoutY="104.0" pickOnBounds="true">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/初始头像.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="70.0" layoutY="251.0" text="账号：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="550.0" text="个性签名：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField layoutX="-440.0" layoutY="26.0" />
+      <Label fx:id="UserName" layoutX="154.0" layoutY="251.0" prefHeight="37.0" prefWidth="234.0" text="123456789">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="Signature" layoutX="161.0" layoutY="533.0" prefHeight="70.0" prefWidth="234.0" text="快来设置你的个性签名吧！" wrapText="true">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="21.0" prefHeight="71.0" prefWidth="268.0" text="Chat个人资料" textFill="#ff554fd4">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="424.0" text="性别：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="488.0" text="出生日期：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="Born" layoutX="154.0" layoutY="488.0" prefHeight="37.0" prefWidth="234.0" text="1999-12-14">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="Sex" layoutX="154.0" layoutY="424.0" prefHeight="37.0" prefWidth="234.0" text="男">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="307.0" text="名称：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="NetName" layoutX="154.0" layoutY="307.0" prefHeight="37.0" prefWidth="234.0" text="DaLao">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="364.0" text="年龄：" textFill="#127bc7e4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="Age" layoutX="154.0" layoutY="364.0" prefHeight="37.0" prefWidth="234.0" text="19">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="ChangePassword" layoutX="55.0" layoutY="632.0" onAction="#ChangePassword_Action" text="修改密码" textFill="#43ace4">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="ChangeData" layoutX="271.0" layoutY="632.0" onAction="#ChangeData_Action" text="编辑资料" textFill="#43ace4">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="ChangeHead" layoutX="177.0" layoutY="214.0" onAction="#ChangeHead_Action" text="更换头像" textFill="#43ace4" />
+      <ImageView fx:id="Refresh" fitHeight="41.0" fitWidth="46.0" layoutX="188.0" layoutY="629.0" onMouseClicked="#Refresh" pickOnBounds="true">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/刷新.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="187.0" layoutY="661.0" onMouseClicked="#Refresh" prefHeight="22.0" prefWidth="63.0" text="刷    新" textFill="#43ace4" wrapText="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+   </children>
+</AnchorPane>

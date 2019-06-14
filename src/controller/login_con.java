@@ -3,13 +3,17 @@ package controller;
 import bin.RetrievePassword_screen;
 import com.mysql.cj.protocol.x.StatementExecuteOk;
 import com.sun.org.apache.xpath.internal.functions.FuncFalse;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import jdk.internal.dynalink.beans.StaticClass;
 import view.CLASS.*;
@@ -20,6 +24,8 @@ import javax.xml.transform.Source;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static controller.Main_con.id_main;
+
 public class login_con implements Initializable {
     @FXML
     private Hyperlink RetrievePassword;                 /**登录界面的‘忘记密码’超链接*/
@@ -28,7 +34,7 @@ public class login_con implements Initializable {
     @FXML
     private PasswordField Password;                  /**登录界面的‘密码’输入框*/
     @FXML
-    private Button registered;                       /**登录界面的‘注册’按钮*/
+    private Hyperlink registered;                       /**登录界面的‘注册’按钮*/
     @FXML
     private Button Load;                              /**登录界面的‘登录’按钮*/
     @FXML
@@ -80,6 +86,7 @@ public class login_con implements Initializable {
          * 不匹配贼弹出’登录失败‘界面
          */
         if(!(UserMessage.getId()==0||!(UserMessage.getPassword().equals(pass)))){
+            Main_con.id_main = id;              //该id用户已经登录
             new windows_screen(). NewWindows(new Stage(),"../FXML/Main.fxml","Chat",412,707);
             //new Main_screen().start(new Stage());
             Stage stage;
@@ -99,6 +106,14 @@ public class login_con implements Initializable {
        //new RetrievePassword_screen().start(new Stage());
     }
     public void initialize(URL url, ResourceBundle rb) {
-        UserName.setText(registered_Yes_con.name);
+        if(!registered_Yes_con.name.equals("")){
+            UserName.setText(registered_Yes_con.name);
+            registered_Yes_con.name="";                         //标记无 忘记密码 界面跳转 登录界面
+        }
+        if(id_main!=0){
+            UserName.setText(""+ id_main);
+            id_main=0;                                 //标记无 用户 已经下线
+        }
     }
+
 }

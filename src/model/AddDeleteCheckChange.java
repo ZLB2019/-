@@ -1,10 +1,13 @@
 package model;
 
 import controller.*;
+
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import model.User;
 
 
 public class AddDeleteCheckChange {
@@ -36,13 +39,15 @@ public class AddDeleteCheckChange {
             stmt.close();									//数据库关闭
             conn.close();
     }
-    /**查询*/
+    /**查询
+     * 返回一个User对象
+     * */
     public static User Select(int UserName)throws Exception{
-        User UserMessage = null;
+        User UserMessage = new User();
         Connection conn = null;						    //数据库连接
         Statement stmt = null;							//数据库操作
         ResultSet rs = null;                                 //保存查询结果
-        String sql =sql = "select Id,Password,Mail,Signature,HeadPhoto from userinformation where Id="+UserName;
+        String sql =sql = "select * from userinformation where Id="+UserName;
         //连接MySQL数据库时，要写上连接的用户名和密码
         Class.forName(driver);							//加载驱动程序
         //连接MySQL数据库时，要写上连接的用户名和密码
@@ -61,10 +66,28 @@ public class AddDeleteCheckChange {
             UserMessage.setMail(rs.getString("Mail"));
             UserMessage.setSignature(rs.getString("Signature"));
             UserMessage.setHeadPhoto(rs.getString("HeadPhoto"));
+            UserMessage.setBorn(rs.getString("Born"));
+            UserMessage.setSex(rs.getString("Sex"));
+            UserMessage.setNetName(rs.getString("NetName"));
         }
 
         stmt.close();								        	//数据库关闭
         conn.close();
         return UserMessage;
     }
+
+    /**修改*/
+    public static void  Update(String sql)throws Exception{
+        Connection conn = null;						    //数据库连接
+        Statement stmt = null;							//数据库操作
+        //连接MySQL数据库时，要写上连接的用户名和密码
+        Class.forName(driver);							//加载驱动程序
+        //连接MySQL数据库时，要写上连接的用户名和密码
+        conn = DriverManager.getConnection(url, user, pass);
+        stmt = conn.createStatement();					//实例化Statement对象
+        stmt.execute(sql);								//执行数据库的操作
+        stmt.close();									//数据             库关闭
+        conn.close();
+    }
 }
+

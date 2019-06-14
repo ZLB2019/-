@@ -7,14 +7,14 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ChangePassword_screen extends Application {
+public class ChangeSuccessful_screen extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AnchorPane root = FXMLLoader.load(getClass().getResource("../view/FXML/ChangePassword.fxml"));
+        AnchorPane root = FXMLLoader.load(getClass().getResource("../view/FXML/ChangeSuccessful.fxml"));
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("file:///E:/聊天器图片素材/图标.png"));
-        primaryStage.setTitle("修改密码");
-        primaryStage.setScene(new Scene(root, 633, 389));
+        primaryStage.setTitle("修改成功");
+        primaryStage.setScene(new Scene(root, 348, 196));
         primaryStage.show();
     }
 }

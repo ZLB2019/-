@@ -1,49 +1,76 @@
 package model;
 
 public class User {
-    private static int Id = 0;
-    private static String Password;
-    private static String Mail;
-    private static String Signature;
-    private static String HeadPhoto;
+    private  int Id = 0;
+    private  String Password;
+    private  String Mail;
+    private  String Signature;
+    private  String HeadPhoto;
+    private  String Sex;
+    private  String Born;
+    private  String NetName;
 
-    public static String getPassword() {
-        return Password;
-    }
-
-    public static void setId(int id) {
+    public void setId(int id) {
         Id = id;
     }
 
-    public static void setPassword(String password) {
+    public void setPassword(String password) {
         Password = password;
     }
 
-    public static void setMail(String mail) {
+    public void setMail(String mail) {
         Mail = mail;
     }
 
-    public static void setSignature(String signature) {
+    public void setSignature(String signature) {
         Signature = signature;
     }
 
-    public static void setHeadPhoto(String headPhoto) {
+    public void setHeadPhoto(String headPhoto) {
         HeadPhoto = headPhoto;
     }
 
-    public static String getMail() {
+    public void setSex(String sex) {
+        Sex = sex;
+    }
+
+    public void setBorn(String born) {
+        Born = born;
+    }
+
+    public void setNetName(String netName) {
+        NetName = netName;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public String getMail() {
         return Mail;
     }
 
-    public static String getSignature() {
+    public String getSignature() {
         return Signature;
     }
 
-    public static String getHeadPhoto() {
+    public String getHeadPhoto() {
         return HeadPhoto;
     }
 
-    public static int getId() {
-        return Id;
+    public String getSex() {
+        return Sex;
+    }
+
+    public String getBorn() {
+        return Born;
+    }
+
+    public String getNetName() {
+        return NetName;
     }
 }
