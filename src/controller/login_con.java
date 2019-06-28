@@ -1,26 +1,16 @@
 package controller;
 
-import bin.RetrievePassword_screen;
-import com.mysql.cj.protocol.x.StatementExecuteOk;
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import jdk.internal.dynalink.beans.StaticClass;
 import view.CLASS.*;
 import model.*;
 
-import javax.xml.bind.SchemaOutputResolver;
-import javax.xml.transform.Source;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -80,7 +70,7 @@ public class login_con implements Initializable {
         String pass = Password.getText();
 
         //用于获取用户信息
-        User UserMessage=AddDeleteCheckChange.Select(id);
+        User UserMessage= AddDeleteCheckChange_friend.Select(id);
         /**判断输入的账号密码是否匹配
          * 匹配则进入’主界面‘，关闭’登录‘界面
          * 不匹配贼弹出’登录失败‘界面
@@ -105,7 +95,8 @@ public class login_con implements Initializable {
         new windows_screen(). NewWindows(new Stage(),"../FXML/RetrievePassword.fxml","找回密码",606,467);
        //new RetrievePassword_screen().start(new Stage());
     }
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         if(!registered_Yes_con.name.equals("")){
             UserName.setText(registered_Yes_con.name);
             registered_Yes_con.name="";                         //标记无 忘记密码 界面跳转 登录界面

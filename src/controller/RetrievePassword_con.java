@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.AddDeleteCheckChange;
+import model.AddDeleteCheckChange_friend;
 import model.User;
 import model.mail;
 import view.CLASS.windows_screen;
@@ -51,7 +51,7 @@ public class RetrievePassword_con {
             e.printStackTrace();
         }
         //用于获取用户信息
-        User UserMessage= AddDeleteCheckChange.Select(id_Ret);
+        User UserMessage= AddDeleteCheckChange_friend.Select(id_Ret);
         /**特殊判断：  当           邮箱格式错误                           或       账号为空               或    账号、邮箱不匹配
          * 则调用修改密码窗口
          */
@@ -91,7 +91,7 @@ public class RetrievePassword_con {
             e.printStackTrace();
         }
         //用于获取用户信息
-        User UserMessage= AddDeleteCheckChange.Select(id_Ret);
+        User UserMessage= AddDeleteCheckChange_friend.Select(id_Ret);
         /**判断：  当           邮箱格式错误                                或    账号、邮箱不匹配
          * 则调用注册失败窗口
          */

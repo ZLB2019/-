@@ -133,7 +133,7 @@ public class registered_con {
             try {
                 sql ="insert into userinformation(id,password,Mail,NetName,Born,Sex,Signature,HeadPhoto)"
                         +" values("+registered_Yes_con.NameInt+",'"+passwrod+"','"+Mail+"','用户"+registered_Yes_con.NameInt+"','1990-01-01','男','快来设置你的个性签名吧！','file:///E:/聊天器图片素材/初始头像.png')";
-                AddDeleteCheckChange.Insert(sql);                     /**注册成功，将账号、密码存入数据库,将网名、出生日期、和性别初始化*/
+                AddDeleteCheckChange_friend.Insert(sql);                     /**注册成功，将账号、密码存入数据库,将网名、出生日期、和性别初始化*/
             } catch (Exception e) {
                 e.printStackTrace();
             }

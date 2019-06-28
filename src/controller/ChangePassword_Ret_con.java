@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-import model.AddDeleteCheckChange;
+import model.AddDeleteCheckChange_friend;
 import view.CLASS.windows_screen;
 
 public class ChangePassword_Ret_con {
@@ -23,7 +23,7 @@ public class ChangePassword_Ret_con {
     public void Determine_Re_Action(ActionEvent event) throws Exception {
         if(Password.getText().length()>=6&&Password.getText().length()<=16 && Password.getText().equals(ConfirmPassword.getText())){
             String sql = "update userinformation set Password='"+Password.getText()+"' where Id="+RetrievePassword_con.id_Ret;
-            AddDeleteCheckChange.Update(sql);
+            AddDeleteCheckChange_friend.Update(sql);
             Stage stage;
             stage = (Stage)Determine_Re.getScene().getWindow();
             stage.close();

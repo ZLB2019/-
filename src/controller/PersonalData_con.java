@@ -1,10 +1,8 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -12,9 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import model.AddDeleteCheckChange;
-import model.Stage_Name;
+import model.AddDeleteCheckChange_friend;
 import model.User;
 import view.CLASS.windows_screen;
 
@@ -22,10 +18,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.ResourceBundle;
-import java.util.zip.CheckedOutputStream;
 
 import static controller.Main_con.id_main;
-import static model.Stage_Name.PersonalDataSuccessful;
 
 public class PersonalData_con implements Initializable {
 
@@ -116,7 +110,7 @@ public class PersonalData_con implements Initializable {
             HeadPath=HeadPath.replace('\\','/');
             sql="update userinformation set HeadPhoto='"+HeadPath+"' where Id="+ id_main;
             try {
-                AddDeleteCheckChange.Update(sql);
+                AddDeleteCheckChange_friend.Update(sql);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -158,7 +152,7 @@ public class PersonalData_con implements Initializable {
         try {
             Calendar now= Calendar.getInstance();                       //获取时间
 
-            User user = AddDeleteCheckChange.Select(id_main);
+            User user = AddDeleteCheckChange_friend.Select(id_main);
 
             Image image = new Image(user.getHeadPhoto());
             Head.setImage(image);                                           //显示头像
@@ -189,7 +183,7 @@ public class PersonalData_con implements Initializable {
         try {
             Calendar now= Calendar.getInstance();                       //获取时间
 
-            User user = AddDeleteCheckChange.Select(id_main);
+            User user = AddDeleteCheckChange_friend.Select(id_main);
 
             Image image = new Image(user.getHeadPhoto());
             Head.setImage(image);                                           //显示头像

@@ -8,23 +8,19 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.AddDeleteCheckChange;
+import model.AddDeleteCheckChange_friend;
 import model.AddDeleteCheckChange_list;
+import model.Data;
 import model.User;
 import view.CLASS.windows_screen;
 
 
-import java.awt.datatransfer.FlavorEvent;
-import java.beans.IntrospectionException;
 import java.net.URL;
-import java.security.interfaces.RSAKey;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-import static controller.Main_con.id_Find;
-import static controller.Main_con.id_main;
+import static controller.Main_con.*;
 
 public class FriendData_Add_con implements Initializable {
 
@@ -59,11 +55,11 @@ public class FriendData_Add_con implements Initializable {
         boolean flag = false;
         rs= AddDeleteCheckChange_list.Selectlist(sql);
 
-        if(id_Find==id_main)            //不能加自己
+        if(friend_id_Find==id_main)            //不能加自己
             flag=true;
 
         while(rs.next()) {              //不能加已经存在的好友
-            if (rs.getInt("Friend") == id_Find) {
+            if (rs.getInt("Friend") == friend_id_Find) {
                 flag = true;
                 break;
             }
@@ -78,10 +74,18 @@ public class FriendData_Add_con implements Initializable {
             return;
         }
 
+        User user = AddDeleteCheckChange_friend.Select(friend_id_Find);
         sql = "insert into friendlist(Main,Friend,Note)"
-                +" values(+"+id_main+","+id_Find+","+id_Find+")";
+                +" values(+"+id_main+","+friend_id_Find+",'"+user.getNetName()+"')";
         /**添加好友成功*/
-        AddDeleteCheckChange.Insert(sql);
+        AddDeleteCheckChange_friend.Insert(sql);
+
+        //对方也要加上
+        user = AddDeleteCheckChange_friend.Select(id_main);
+        sql = "insert into friendlist(Main,Friend,Note)"
+                +" values(+"+friend_id_Find+","+id_main+",'"+user.getNetName()+"')";
+        AddDeleteCheckChange_friend.Insert(sql);
+
         new windows_screen(). NewWindows(new Stage(),"../FXML/FriendAddSuccessful.fxml","好友添加成功",392,210);
         Stage stage;
         stage = (Stage)AddFriend.getScene().getWindow();
@@ -95,12 +99,12 @@ public class FriendData_Add_con implements Initializable {
         try {
             Calendar now= Calendar.getInstance();                       //获取时间
 
-            User user = AddDeleteCheckChange.Select(id_Find);
+            User user = AddDeleteCheckChange_friend.Select(friend_id_Find);
 
             Image image = new Image(user.getHeadPhoto());
             Head.setImage(image);                                           //显示头像
 
-            UserName.setText(""+ id_Find);                           //显示账号
+            UserName.setText(""+ friend_id_Find);                           //显示账号
 
             NetName.setText(user.getNetName());                         //显示网名
 

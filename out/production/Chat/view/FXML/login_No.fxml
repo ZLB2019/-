@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="235.0" prefWidth="445.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.registered_No_con">
+<AnchorPane prefHeight="235.0" prefWidth="445.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PromptWindow_con">
    <children>
       <Label layoutX="63.0" layoutY="47.0" prefHeight="43.0" prefWidth="324.0" text="用户名不存在或密码错误" textFill="#e43131cc">
          <font>

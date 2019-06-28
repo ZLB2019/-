@@ -5,10 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class registered_No_con {
+public class PromptWindow_con {
 
     @FXML
-    private Button registered_No_Close;                       /**注册失败界面的‘确定’按钮*/
+    private Button registered_No_Close;                       /**提示界面的‘确定’按钮*/
 
     @FXML
     public void registered_No_Close(ActionEvent event) {

@@ -43,4 +43,14 @@ public class windows_screen extends Application {
  *FindError             :   new windows_screen(). NewWindows(new Stage(),"../FXML/FindError.fxml","查找失败",392,210);
  *FriendAddError        :   new windows_screen(). NewWindows(new Stage(),"../FXML/FriendAddError.fxml","好友添加失败",392,210);
  *FriendAddSuccessful   :   new windows_screen(). NewWindows(new Stage(),"../FXML/FriendAddSuccessful.fxml","好友添加成功",392,210);
+ *CreateGroup           :   new windows_screen(). NewWindows(new Stage(),"../FXML/CreateGroup.fxml","创建群聊",432,312);
+ *CreateGroupSuccessful :   new windows_screen(). NewWindows(new Stage(),"../FXML/CreateGroupSuccessful.fxml","创建群聊成功",392,210);
+ *GroupData_Add         :   new windows_screen(). NewWindows(new Stage(),"../FXML/GroupData_Add.fxml","Chat群资料",421,702);
+ *GroupAddError         :   new windows_screen(). NewWindows(new Stage(),"../FXML/GroupAddError.fxml","群聊加入失败",392,210);
+ *GroupAddSuccessful    :   new windows_screen(). NewWindows(new Stage(),"../FXML/GroupAddSuccessful.fxml","群聊加入成功",392,210);
+ *FriendData            :   new windows_screen(). NewWindows(new Stage(),"../FXML/FriendData.fxml","好友个人资料",421,710);
+ *GroupData             :   new windows_screen(). NewWindows(new Stage(),"../FXML/GroupData.fxml","Chat群资料",421,702);
+ *DeleteFriendSuccessful:   new windows_screen(). NewWindows(new Stage(),"../FXML/DeleteFriendSuccessful.fxml","好友删除成功",392,210);
+ *chat                  :   new windows_screen(). NewWindows(new Stage(),"../FXML/chat.fxml","chat",866,677);
  */
+

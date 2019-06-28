@@ -29,7 +29,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <ImageView fx:id="Refresh" fitHeight="41.0" fitWidth="46.0" layoutX="904.0" layoutY="175.0" onMouseClicked="#Refresh" pickOnBounds="true">
+            <ImageView fx:id="Refresh" fitHeight="41.0" fitWidth="46.0" layoutX="904.0" layoutY="172.0" onMouseClicked="#Refresh" pickOnBounds="true">
                <image>
                   <Image url="file:///E:/聊天器图片素材/刷新.png" />
                </image>
@@ -37,11 +37,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label layoutX="906.0" layoutY="209.0" onMouseClicked="#Refresh" prefHeight="22.0" prefWidth="63.0" text="刷    新" textFill="WHITE" wrapText="true">
+            <Label layoutX="906.0" layoutY="206.0" onMouseClicked="#Refresh" prefHeight="22.0" prefWidth="63.0" text="刷    新" textFill="WHITE" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Label>
-            <Hyperlink fx:id="Logout" layoutX="905.0" layoutY="247.0" onAction="#Logout_Action" text="注 销" textFill="WHITE">
+            <Hyperlink fx:id="Logout" layoutX="734.0" layoutY="284.0" onAction="#Logout_Action" text="注 销" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -64,6 +64,11 @@
             </ImageView>
             <TextField fx:id="GroupFind" layoutX="795.0" layoutY="283.0" opacity="0.75" prefHeight="30.0" prefWidth="143.0" promptText="添加群" />
             <TextField fx:id="FriendFind" layoutX="543.0" layoutY="283.0" opacity="0.75" prefHeight="30.0" prefWidth="143.0" promptText="添加好友" />
+            <Hyperlink fx:id="CreateGroup" layoutX="889.0" layoutY="241.0" onAction="#CreateGroup_Action" text="创建群聊" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
          </children></AnchorPane>
       <Accordion layoutX="6.0" layoutY="157.0" />
       <Button fx:id="Message" focusTraversable="false" layoutY="157.0" mnemonicParsing="false" onAction="#Message_Action" onMouseEntered="#MessageMouseEntered" onMouseExited="#MessageMouseExited" prefHeight="34.0" prefWidth="142.6" style="-fx-background-color: #E0FFFF;" text=" 消   息">

@@ -1,23 +1,18 @@
 package controller;
 
-import bin.PersonalData_screen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.AddDeleteCheckChange;
+import model.AddDeleteCheckChange_friend;
 import model.User;
 import view.CLASS.windows_screen;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
-
-import static model.Stage_Name.PersonalDataSuccessful;
 
 public class ChangePersonalData_con implements Initializable {
 
@@ -78,7 +73,7 @@ public class ChangePersonalData_con implements Initializable {
         }
         /**输入正确*/
         String sql = "update userinformation set NetName='"+NetName.getText()+"',Sex='"+Sex.getText()+"',Born='"+Born.getText()+"',Signature='"+Signature.getText()+"' where Id="+Main_con.id_main;
-        AddDeleteCheckChange.Update(sql);
+        AddDeleteCheckChange_friend.Update(sql);
         Stage stage;
         stage=(Stage)End.getScene().getWindow();
         stage.close();
@@ -90,7 +85,7 @@ public class ChangePersonalData_con implements Initializable {
 
         try {
             Calendar now= Calendar.getInstance();                       //获取时间
-            User user = AddDeleteCheckChange.Select(Main_con.id_main);
+            User user = AddDeleteCheckChange_friend.Select(Main_con.id_main);
 
 
             NetName.setText(user.getNetName());                         //显示网名

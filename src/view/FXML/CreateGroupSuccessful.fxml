@@ -28,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="54.0" layoutY="21.0" prefHeight="102.0" prefWidth="298.0" text="该用户已经注销，你无法进行此操作" textAlignment="CENTER" textFill="#c31212e3" wrapText="true">
+      <Label layoutX="100.0" layoutY="35.0" prefHeight="58.0" prefWidth="192.0" text="创建群聊成功！" textFill="#10cd46e3">
          <font>
             <Font size="27.0" />
          </font>

@@ -10,7 +10,7 @@ import java.sql.Statement;
 import model.User;
 
 
-public class AddDeleteCheckChange {
+public class AddDeleteCheckChange_friend {
     //定义MySQL数据库的驱动程序
     public static final String driver="com.mysql.cj.jdbc.Driver";
 
@@ -86,7 +86,21 @@ public class AddDeleteCheckChange {
         conn = DriverManager.getConnection(url, user, pass);
         stmt = conn.createStatement();					//实例化Statement对象
         stmt.execute(sql);								//执行数据库的操作
-        stmt.close();									//数据             库关闭
+        stmt.close();									//数据库关闭
+        conn.close();
+    }
+
+    /**删除*/
+    public static void Delete(String sql)throws Exception{
+        Connection conn = null;						    //数据库连接
+        Statement stmt = null;							//数据库操作
+        //连接MySQL数据库时，要写上连接的用户名和密码
+        Class.forName(driver);							//加载驱动程序
+        //连接MySQL数据库时，要写上连接的用户名和密码
+        conn = DriverManager.getConnection(url, user, pass);
+        stmt = conn.createStatement();					//实例化Statement对象
+        stmt.execute(sql);								//执行数据库的操作
+        stmt.close();									//数据库关闭
         conn.close();
     }
 }
