@@ -5,7 +5,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/model/AddDeleteCheckChange_Group.java" line="41" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.7版本">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.8版本" />
+    <list id="6d8c8d78-7bc5-4cce-8cf6-109e16239dad" name="123165" comment="" />
+    <list id="5c718062-f093-4658-a370-e87e0052a755" name="Chta聊天室" comment="">
       <change afterPath="$PROJECT_DIR$/src/controller/GroupChat_con.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/view/FXML/DissolutionGroupSuccessful.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/view/FXML/ExitGroupSuccessful.fxml" afterDir="false" />
@@ -44,7 +46,6 @@
       <change beforePath="$PROJECT_DIR$/src/view/FXML/chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/FXML/chat.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/FXML/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/FXML/login.fxml" afterDir="false" />
     </list>
-    <list id="6d8c8d78-7bc5-4cce-8cf6-109e16239dad" name="123165" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -127,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+            <state relative-caret-position="403">
+              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -292,7 +293,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,6 +353,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -568,6 +569,7 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
       <changelist id="6d8c8d78-7bc5-4cce-8cf6-109e16239dad" name="123165" comment="" />
+      <changelist id="5c718062-f093-4658-a370-e87e0052a755" name="Chta聊天室" comment="" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -647,7 +649,7 @@
       <workItem from="1562059517526" duration="62000" />
       <workItem from="1562059613817" duration="91000" />
       <workItem from="1562805136348" duration="867000" />
-      <workItem from="1562807502751" duration="1282000" />
+      <workItem from="1562807502751" duration="1940000" />
     </task>
     <task id="LOCAL-00001" summary="这是第一个Git&#10;&#10;来自周龙波  &#10;0.1版本">
       <created>1558268584207</created>
@@ -691,11 +693,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561719967166</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.8版本">
+      <created>1562808896038</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562808896038</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="581021000" />
+    <option name="totallyTimeSpent" value="581679000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -707,14 +716,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="549" y="271" width="784" height="832" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Image Layers" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.6703755" visible="true" weight="0.54407716" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.6703755" visible="true" weight="0.2647453" />
       <window_info id="Structure" order="5" weight="0.25" />
       <window_info id="Favorites" order="6" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -816,7 +824,8 @@
     <MESSAGE value="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.5版本" />
     <MESSAGE value="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.6版本" />
     <MESSAGE value="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.7版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.7版本" />
+    <MESSAGE value="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.8版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="这是第一个Git&#10;     &#10;     来自周龙波  &#10;     0.8版本" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1288,8 +1297,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+        <state relative-caret-position="403">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
