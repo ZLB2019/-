@@ -2,10 +2,7 @@ package bin;
 
 import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class judge {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
@@ -13,7 +10,6 @@ public class judge {
     private static final String user = "root";
     private static final String pass = "zlb19991111";
     private static final String sql = "select id,password from userinformation";
-
     public static boolean judge(int id,String password )throws Exception {
         boolean flag = false;                                           //登录信息是否正确，默认：不正确
         Connection conn = null;                                 //数据库连接
@@ -35,7 +31,6 @@ public class judge {
                 }
             }
         }
-
         return flag;
     }
 }
