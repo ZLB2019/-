@@ -51,6 +51,11 @@ public class windows_screen extends Application {
  *FriendData            :   new windows_screen(). NewWindows(new Stage(),"../FXML/FriendData.fxml","好友个人资料",421,710);
  *GroupData             :   new windows_screen(). NewWindows(new Stage(),"../FXML/GroupData.fxml","Chat群资料",421,702);
  *DeleteFriendSuccessful:   new windows_screen(). NewWindows(new Stage(),"../FXML/DeleteFriendSuccessful.fxml","好友删除成功",392,210);
- *chat                  :   new windows_screen(). NewWindows(new Stage(),"../FXML/chat.fxml","chat",866,677);
+ *Chat                  :   new windows_screen(). NewWindows(new Stage(),"../FXML/Chat.fxml","chat",994,665);
+ *GroupChat             :   new windows_screen(). NewWindows(new Stage(),"../FXML/GroupChat.fxml","chat",1144,677);
+ *InvitationSuccessful  :   new windows_screen(). NewWindows(new Stage(),"../FXML/InvitationSuccessful.fxml","邀请群成员成功",392,210);
+ *InvitationError       :   new windows_screen(). NewWindows(new Stage(),"../FXML/InvitationError.fxml","邀请群成员失败",392,210);
+ *DissolutionGroupSuccessful :   new windows_screen(). NewWindows(new Stage(),"../FXML/DissolutionGroupSuccessful.fxml","解散成功",392,210);
+ *ExitGroupSuccessful   ;   new windows_screen(). NewWindows(new Stage(),"../FXML/ExitGroupSuccessful.fxml","退出成功",392,210);
  */
 

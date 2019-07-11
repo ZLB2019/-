@@ -1,31 +1,34 @@
 package model;
 
-import controller.chat_con;
+import com.sun.javafx.image.BytePixelSetter;
+import controller.Chat_con;
+import controller.GroupChat_con;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.zip.CheckedOutputStream;
-
-import static model.ChatClient.Client_friend;
-import static model.ChatClient.Client_main;
 
 public class RefreshList {
 
-    public static ArrayList<chat_con> ChatWindows = new ArrayList<>();
+    public static ArrayList<Chat_con> ChatWindows = new ArrayList<>();
+    public static ArrayList<GroupChat_con> GroupChatWindows = new ArrayList<>();
 
-    public static void AddList(MessageData messageData){
-        System.out.println("进来了,有"+ChatWindows.size()+"个ChatWindows");
-            for (chat_con list : ChatWindows) {
-                if( (list.m == messageData.getMain()&&list.y == messageData.getFriend()) || (list.m == messageData.getFriend()&&list.y == messageData.getMain()) ){
-                    Platform.runLater(()->{
-                       list.AddData(messageData);
-                    });
+    public static void AddList(MessageData messageData) {
+        Platform.runLater(() -> {
+            if (messageData.getFriend() > 10000000)                     //私聊
+                for (Chat_con list : ChatWindows) {
+                    if ((list.m == messageData.getFriend() && list.y == messageData.getMain())) {
+                        list.AddData(messageData);
+                    }
                 }
-            }
-    }
+            else
+                for (GroupChat_con list : GroupChatWindows) {
+                    if (list.GroupId == messageData.getFriend()) {      //群聊
+                        list.AddData(messageData);
+                    }
+                }
 
+        });
+
+    }
 }

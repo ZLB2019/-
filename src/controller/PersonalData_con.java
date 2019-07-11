@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.AddDeleteCheckChange_friend;
@@ -82,7 +83,7 @@ public class PersonalData_con implements Initializable {
     }
 
     @FXML
-    void ChangeHead_Action(ActionEvent event) {
+    void ChangeHead_Action(ActionEvent event) throws Exception{
         /**如果用户已经注销,则显示 ‘操作失败’ 窗口 ，阻止正常的弹出窗口*/
         if(Main_con.id_main==0){
             try {
@@ -105,15 +106,13 @@ public class PersonalData_con implements Initializable {
         if (file != null) {
             String HeadPath = "file:///";
             String sql;
-            int i;
             HeadPath = HeadPath+file.getAbsolutePath();
             HeadPath=HeadPath.replace('\\','/');
             sql="update userinformation set HeadPhoto='"+HeadPath+"' where Id="+ id_main;
-            try {
-                AddDeleteCheckChange_friend.Update(sql);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            AddDeleteCheckChange_friend.Update(sql);
+            User user = AddDeleteCheckChange_friend.Select(id_main);
+            Image img = new Image(user.getHeadPhoto());
+            Head.setImage(img);                                                           //群头像
         }
     }
 
@@ -187,6 +186,11 @@ public class PersonalData_con implements Initializable {
 
             Image image = new Image(user.getHeadPhoto());
             Head.setImage(image);                                           //显示头像
+            Circle circle1 = new Circle();
+            circle1.setRadius(52);
+            circle1.setCenterX(52);
+            circle1.setCenterY(52);
+            Head.setClip(circle1);
 
             UserName.setText(""+ id_main);                           //显示账号
 

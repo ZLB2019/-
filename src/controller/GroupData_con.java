@@ -6,28 +6,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.*;
+import view.CLASS.windows_screen;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
-import static controller.Main_con.group_Edit;
-import static controller.Main_con.group_id_Find;
+import static controller.Main_con.*;
 
 public class GroupData_con implements Initializable {
 
     @FXML
     private ImageView Group_head;
+
+    @FXML
+    private Hyperlink ChangeHead;
 
     @FXML
     private Label Group_id;
@@ -48,16 +51,66 @@ public class GroupData_con implements Initializable {
     private Button SendMessage;
 
     @FXML
-    void DeleteGroup_Action(ActionEvent event) {
+    void DeleteGroup_Action(ActionEvent event) throws Exception {
+        if(DeleteGroup.getText().equals("解散该群")){
+            String sql = "delete from groupmanagement where Group_id=" + group_Edit;
+            AddDeleteCheckChange_Group.Delete(sql);
+            sql  = "delete from chat where Friend=" + group_Edit;
+            AddDeleteCheckChange_Group.Delete(sql);
+            sql  = "delete from grouplist where Group_id=" + group_Edit;
+            AddDeleteCheckChange_Group.Delete(sql);
+            new windows_screen(). NewWindows(new Stage(),"../FXML/DissolutionGroupSuccessful.fxml","解散成功",392,210);
+        }else{
+            String sql = "delete from grouplist where Main_id=" + id_main + " and Group_id="+group_Edit;
+            AddDeleteCheckChange_Group.Delete(sql);
+            new windows_screen(). NewWindows(new Stage(),"../FXML/ExitGroupSuccessful.fxml","退出成功",392,210);
+        }
 
     }
 
     @FXML
-    void SendMessage_Action(ActionEvent event) {
+    void ChangeHead_Action(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose File");			//打开文件窗口  名称
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Photo Files", "*.jpg", "*.png","*.bmp"));
+        /**null———当前电脑显示器屏幕的中央。
+         *this———当前你编写的程序屏幕中央
+         * 如果是你其他的 控件名称 就是以这个 控件 为中心，弹出的文件选择器。
+         **/
+        File file = fileChooser.showOpenDialog(null);
 
+        if (file != null) {
+            String HeadPath = "file:///";
+            String sql;
+            HeadPath = HeadPath+file.getAbsolutePath();
+            HeadPath=HeadPath.replace('\\','/');
+            sql="update groupmanagement set Group_head='"+HeadPath+"' where Group_id="+ group_Edit;
+            try {
+                AddDeleteCheckChange_friend.Update(sql);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            String sql_Group = "select * from groupmanagement where Group_id="+group_Edit;
+            Group GroupMessage = AddDeleteCheckChange_Group.Select_Group(sql_Group);
+            Image img = new Image(GroupMessage.getGroup_head());
+            Group_head.setImage(img);                                                           //群头像
+        }
+    }
+
+    @FXML
+    void SendMessage_Action(ActionEvent event) {
+        Stage stage = (Stage)SendMessage.getScene().getWindow();
+        stage.close();
+        try {
+            new windows_screen(). NewWindows(new Stage(),"../FXML/GroupChat.fxml","chat",1144,677);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void initialize(URL url, ResourceBundle rb) {
+
+        ChatClient.Client_other=group_Edit;
 
         GroupUserList.setCellFactory(new Callback<ListView<Data>, ListCell<Data>>() {
 
@@ -91,6 +144,9 @@ public class GroupData_con implements Initializable {
                             Label Note =new Label(item.getNote());
                             hbox.getChildren().addAll(Head,Note);
                             this.setGraphic(hbox);
+                        }else if(empty){
+                            setText(null);
+                            setGraphic(null);
                         }
                     }
 
@@ -103,11 +159,23 @@ public class GroupData_con implements Initializable {
             Group GroupMessage = new Group();
             String sql_Group = "select * from groupmanagement where Group_id="+group_Edit;
             GroupMessage= AddDeleteCheckChange_Group.Select_Group(sql_Group);
+            if(GroupMessage.getGroup_main() == id_main) {
+                ChangeHead.setVisible(true);
+                DeleteGroup.setText("解散该群");
+            }else{
+                ChangeHead.setVisible(false);
+            }
+
 
             Group_id.setText(GroupMessage.getGroup_id()+"");                                    //群id
 
             Image img = new Image(GroupMessage.getGroup_head());
             Group_head.setImage(img);                                                           //群头像
+            Circle circle1 = new Circle();
+            circle1.setRadius(52);
+            circle1.setCenterX(52);
+            circle1.setCenterY(52);
+            Group_head.setClip(circle1);
 
             Group_name.setText(GroupMessage.getGroup_name());                                   //群名称
 

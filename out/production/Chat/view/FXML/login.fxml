@@ -22,7 +22,7 @@
             <Font size="21.0" />
          </font>
       </PasswordField>
-      <Hyperlink fx:id="RetrievePassword" layoutX="425.0" layoutY="348.0" onAction="#OpenRetrievePassword" prefHeight="30.0" prefWidth="94.0" text="忘记密码？" textFill="#43ace4">
+      <Hyperlink fx:id="RetrievePassword" focusTraversable="false" layoutX="425.0" layoutY="348.0" onAction="#OpenRetrievePassword" prefHeight="30.0" prefWidth="94.0" text="忘记密码？" textFill="#43ace4">
          <font>
             <Font size="16.0" />
          </font></Hyperlink>
@@ -31,7 +31,7 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="registered" layoutX="85.0" layoutY="348.0" onAction="#registered" text="注册账号" textFill="#43ace4">
+      <Hyperlink fx:id="registered" focusTraversable="false" layoutX="85.0" layoutY="348.0" onAction="#registered" text="注册账号" textFill="#43ace4">
          <font>
             <Font size="16.0" />
          </font>

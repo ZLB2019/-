@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="690.0" prefWidth="421.0" style="-fx-background-color: #E0FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PersonalData_con">
    <children>
-      <ImageView fx:id="Head" fitHeight="103.0" fitWidth="103.0" layoutX="160.0" layoutY="104.0" pickOnBounds="true">
+      <ImageView fx:id="Head" fitHeight="104.0" fitWidth="104.0" layoutX="159.0" layoutY="102.0" pickOnBounds="true">
          <image>
             <Image url="file:///E:/聊天器图片素材/初始头像.png" />
          </image>
@@ -82,17 +82,17 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="ChangePassword" layoutX="55.0" layoutY="632.0" onAction="#ChangePassword_Action" text="修改密码" textFill="#43ace4">
+      <Hyperlink fx:id="ChangePassword" focusTraversable="false" layoutX="55.0" layoutY="632.0" onAction="#ChangePassword_Action" text="修改密码" textFill="#43ace4">
          <font>
             <Font size="19.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="ChangeData" layoutX="271.0" layoutY="632.0" onAction="#ChangeData_Action" text="编辑资料" textFill="#43ace4">
+      <Hyperlink fx:id="ChangeData" focusTraversable="false" layoutX="271.0" layoutY="632.0" onAction="#ChangeData_Action" text="编辑资料" textFill="#43ace4">
          <font>
             <Font size="19.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="ChangeHead" layoutX="177.0" layoutY="214.0" onAction="#ChangeHead_Action" text="更换头像" textFill="#43ace4" />
+      <Hyperlink fx:id="ChangeHead" focusTraversable="false" layoutX="177.0" layoutY="214.0" onAction="#ChangeHead_Action" text="更换头像" textFill="#43ace4" />
       <ImageView fx:id="Refresh" fitHeight="41.0" fitWidth="46.0" layoutX="188.0" layoutY="629.0" onMouseClicked="#Refresh" pickOnBounds="true">
          <image>
             <Image url="file:///E:/聊天器图片素材/刷新.png" />

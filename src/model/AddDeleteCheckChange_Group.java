@@ -46,7 +46,7 @@ public class AddDeleteCheckChange_Group extends AddDeleteCheckChange_friend{
     }
 
     /**查询
-     * 返回一个bool值
+     * 返回一个Group值
      * */
     public static Group Select_Group(String sql)throws Exception{
         boolean flag = false;

@@ -1,14 +1,7 @@
 package model;
 
-import com.sun.security.ntlm.Server;
-import controller.chat_con;
-import javafx.collections.ObservableList;
-
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Calendar;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
@@ -74,7 +67,11 @@ public class ChatServer {
             }
             else                    /**群聊*/
             {
-
+                for(channel others : all){
+                    System.out.println(others.name);
+                    if(others != this)
+                        Send(others, msg);
+                }
             }
 
         }
@@ -100,21 +97,21 @@ public class ChatServer {
                 String[] MandF = UandM[0].split("->");
                 String main_id = MandF[0];
                 String friend_id = MandF[1];
-                String message = UandM[1];
 
-                System.out.println("发件人:");
-                System.out.println(main_id);
-                System.out.println("收件人:");
-                System.out.println(friend_id);
-                System.out.println("信息内容:");
-                System.out.println(message);
+                String img = "";
+                String message = "";
+                if(UandM[1].contains(".jpg")||UandM[1].contains(".png")||UandM[1].contains(".bmp")||UandM[1].contains(".JPG")||UandM[1].contains(".PNG")||UandM[1].contains(".BMP")){
+                    img = UandM[1];
+                }else{
+                    message = UandM[1];
+                }
 
                 //时间
                 String timeString = ReturnTime.ReturnNoTime();
 
                 //聊天记录存入数据库
                 try {
-                    ChatRecord.mysqlc(main_id, friend_id, message, timeString);
+                    ChatRecord.mysqlc(main_id, friend_id, message, timeString,img);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

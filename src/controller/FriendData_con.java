@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.*;
 import view.CLASS.windows_screen;
@@ -91,7 +92,7 @@ public class FriendData_con  implements Initializable {
         Stage stage = (Stage)SendMessage.getScene().getWindow();
         stage.close();
         try {
-            new windows_screen(). NewWindows(new Stage(),"../FXML/chat.fxml","chat",866,677);
+            new windows_screen(). NewWindows(new Stage(),"../FXML/Chat.fxml","chat",994,665);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -100,7 +101,7 @@ public class FriendData_con  implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             friend_id=friend_Edit;                                      //获取联系人
-            ChatClient.Client_friend=friend_Edit;
+            ChatClient.Client_other=friend_Edit;
 
             Calendar now= Calendar.getInstance();                       //获取时间
 
@@ -108,6 +109,11 @@ public class FriendData_con  implements Initializable {
 
             Image image = new Image(user.getHeadPhoto());
             Head.setImage(image);                                           //显示头像
+            Circle circle1 = new Circle();
+            circle1.setRadius(52);
+            circle1.setCenterX(52);
+            circle1.setCenterY(52);
+            Head.setClip(circle1);
 
             UserName.setText(""+ friend_Edit);                                //显示账号
 

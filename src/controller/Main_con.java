@@ -38,7 +38,7 @@ public class Main_con implements Initializable {
     private TextField FriendFind;
 
     @FXML
-    private ListView<String> MessageList;
+    private ListView<Data> MessageList;
 
     @FXML
     private ListView<Data> FriendsList;
@@ -70,7 +70,7 @@ public class Main_con implements Initializable {
     private ImageView Refresh;
 
     @FXML
-    private AnchorPane HeadBorder;
+    private Circle HeadBorder;
 
     @FXML
     private ImageView Head;
@@ -90,7 +90,6 @@ public class Main_con implements Initializable {
     @FXML
     private Button Group;
 
-    public static ObservableList<String> Messagelist = FXCollections.observableArrayList();
     public static ObservableList<Data> Grouplist = FXCollections.observableArrayList();
     public static ObservableList<Data> Friendslist = FXCollections.observableArrayList();
 
@@ -215,7 +214,6 @@ public class Main_con implements Initializable {
             }
             AddDeleteCheckChange_list.MysqlClose();
 
-
             //刷新群聊列表
             Grouplist.clear();
             String sql_Grouplist = "select * from grouplist where Main_id="+id_main;
@@ -250,7 +248,7 @@ public class Main_con implements Initializable {
             /**找到了*/
             new windows_screen(). NewWindows(new Stage(),"../FXML/FriendData_Add.fxml","用户个人资料",421,690);
         }
-
+        FriendFind.setText("");
     }
 
     @FXML
@@ -262,10 +260,10 @@ public class Main_con implements Initializable {
         if(!AddDeleteCheckChange_Group.Select_bool(sql)){
             new windows_screen(). NewWindows(new Stage(),"../FXML/FindError.fxml","查找失败",392,210);
             return;
-        }else
+        }else{
             new windows_screen(). NewWindows(new Stage(),"../FXML/GroupData_Add.fxml","Chat群资料",421,702);
-
-
+        }
+        GroupFind.setText("");
     }
 
     @FXML
@@ -293,6 +291,78 @@ public class Main_con implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        MessageList.setEditable(true);                                        //设置 可以双击 或 回车 操作，不然 startEdit() 无作用
+        MessageList.setCellFactory(new Callback<ListView<Data>, ListCell<Data>>() {
+
+            int index = 0;
+            Data temp = null;
+
+            @Override
+            public ListCell<Data> call(ListView<Data> param) {
+
+                param.setOnEditStart(new EventHandler<ListView.EditEvent<Data>>(){
+
+                    @Override
+                    public void handle(ListView.EditEvent<Data> event){
+                        index = event.getIndex();
+
+                        temp = param.getItems().get(index);
+                    }
+
+                });
+
+                ListCell<Data> listcell  = new ListCell<Data>(){
+
+
+                    @Override
+                    public void startEdit(){
+                        super.startEdit();
+                        try {
+                            friend_Edit=temp.getId();
+                            new windows_screen(). NewWindows(new Stage(),"../FXML/FriendData.fxml","好友个人资料",421,710);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    //只定义编辑单元格一定要重写的方法
+                    protected void updateItem(Data item, boolean empty) {
+
+                        super.updateItem(item, empty);
+
+                        if(!empty && item != null){
+                            HBox hbox = new HBox(10);
+
+
+                            Image img = new Image(item.getHead());
+                            ImageView Head = new ImageView();
+                            Head.setImage(img);
+                            Circle circle1 = new Circle();
+                            circle1.setRadius(25);
+                            circle1.setCenterX(25);
+                            circle1.setCenterY(25);
+                            Head.setClip(circle1);
+                            Head.setPreserveRatio(true);
+                            Head.setFitHeight(50);
+
+                            Label Id =new Label(item.getId()+"");
+
+                            hbox.setAlignment(Pos.CENTER_LEFT);
+                            hbox.getChildren().addAll(Head,Id);
+                            this.setGraphic(hbox);
+                        }else if(empty){
+                            setText(null);
+                            setGraphic(null);
+                        }
+                    }
+
+                };
+                return listcell;
+            }
+        });
+
         FriendsList.setEditable(true);                                        //设置 可以双击 或 回车 操作，不然 startEdit() 无作用
         FriendsList.setCellFactory(new Callback<ListView<Data>, ListCell<Data>>() {
 
@@ -442,33 +512,14 @@ public class Main_con implements Initializable {
             Signature.setText(user.getSignature());
             HeadBorder.setVisible(false);
             Image image = new Image(user.getHeadPhoto());
-            Head.setImage(image);                                           //显示头像
+            Head.setImage(image);//显示头像
+            Circle circle1 = new Circle();
+            circle1.setRadius(36);
+            circle1.setCenterX(36);
+            circle1.setCenterY(36);
+            Head.setClip(circle1);
 
-            MessageList.setItems(Messagelist);
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");
-            Messagelist.add("喂，在吗");
-            Messagelist.add("你在干嘛");
-            Messagelist.add("emmm。。");
-            Messagelist.add("emmm。。");
-
+            MessageList.setItems(Friendslist);
 
             FriendsList.setItems(Friendslist);
             Friendslist.clear();

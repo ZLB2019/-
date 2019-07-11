@@ -11,7 +11,7 @@ import static model.RefreshList.ChatWindows;
 public class ChatClient {
 
     public static int Client_main;
-    public static int Client_friend;
+    public static int Client_other;
 
     public int name;
 

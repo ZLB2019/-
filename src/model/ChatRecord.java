@@ -14,11 +14,11 @@ public class ChatRecord {
     //定义MySQL数据库的连接密码
     public static final String pass="zlb19991111";
 
-    public static void mysqlc(String main,String friend,String message,String time) throws Exception {
+    public static void mysqlc(String main,String friend,String message,String time,String img) throws Exception {
         Connection conn = null;							//数据库连接
         Statement stmt = null;							//数据库操作
-        String sql ="insert into chat(Main,Friend,Message,Time)"
-                +" values('"+main+"','"+friend+"','"+message+"','"+time+"')";
+        String sql ="insert into chat(Main,Friend,Message,Time,Image)"
+                +" values('"+main+"','"+friend+"','"+message+"','"+time+"','"+img+"')";
 
         //连接MySQL数据库时，要写上连接的用户名和密码
         Class.forName(driver);							//加载驱动程序

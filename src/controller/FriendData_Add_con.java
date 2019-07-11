@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.AddDeleteCheckChange_friend;
 import model.AddDeleteCheckChange_list;
@@ -103,6 +104,11 @@ public class FriendData_Add_con implements Initializable {
 
             Image image = new Image(user.getHeadPhoto());
             Head.setImage(image);                                           //显示头像
+            Circle circle1 = new Circle();
+            circle1.setRadius(52);
+            circle1.setCenterX(52);
+            circle1.setCenterY(52);
+            Head.setClip(circle1);
 
             UserName.setText(""+ friend_id_Find);                           //显示账号
 
