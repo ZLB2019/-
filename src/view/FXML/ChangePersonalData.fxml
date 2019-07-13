@@ -61,20 +61,20 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MenuButton>
-      <Button fx:id="Save" layoutX="279.0" layoutY="458.0" mnemonicParsing="false" onAction="#Save_Action" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #1C86EE;" text="保 存" textFill="WHITE">
+      <Button fx:id="Save" layoutX="279.0" layoutY="458.0" mnemonicParsing="false" onAction="#Save_Action" onMouseEntered="#Save_Entered" onMouseExited="#Save_Exited" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #1C86EE;" text="保 存" textFill="WHITE">
          <font>
             <Font size="21.0" />
          </font>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="End" layoutX="158.0" layoutY="458.0" mnemonicParsing="false" onAction="#End_onAction" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: FF0000;" text="返 回" textFill="WHITE">
+      <Button fx:id="End" layoutX="158.0" layoutY="458.0" mnemonicParsing="false" onAction="#End_onAction" onMouseEntered="#End_Entered" onMouseExited="#End_Exited" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: FF0000;" text="返 回" textFill="WHITE">
          <font>
             <Font size="21.0" />
          </font>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
       <Label layoutX="44.0" layoutY="416.0" prefHeight="42.0" prefWidth="105.0" text="Ψ(￣∀￣)Ψ" textFill="#127bc7e4">

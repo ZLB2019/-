@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.AddDeleteCheckChange_friend;
 import model.User;
@@ -33,6 +34,28 @@ public class RetrievePassword_con {
     public static int id_Ret = 0;                                             //忘记密码界面需要修改的 账号and标记
 
     private String QQMailRegular = "[1-9][0-9]{5,9}@qq.com";           /**QQ邮箱的正则表达式*/
+
+
+    @FXML
+    void GetMail_Entered(MouseEvent event) {
+        GetMail.setStyle("-fx-background-color :  #1E90FF ;");
+    }
+
+    @FXML
+    void GetMail_Exited(MouseEvent event) {
+        GetMail.setStyle("-fx-background-color :  #1C86EE ;");
+    }
+
+    @FXML
+    void Determine_Entered(MouseEvent event) {
+        Determine.setStyle("-fx-background-color :  #FF4040 ;");
+    }
+
+    @FXML
+    void Determine_Exited(MouseEvent event) {
+        Determine.setStyle("-fx-background-color :  #FF0000 ;");
+    }
+
 
     /**找回密码界面单击’确定‘按钮*/
     @FXML

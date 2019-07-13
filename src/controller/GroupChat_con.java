@@ -3,12 +3,16 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
@@ -36,6 +40,9 @@ public class GroupChat_con implements Initializable {
     private TextArea Message;
 
     @FXML
+    private AnchorPane Expression;
+
+    @FXML
     private ListView<MessageData> Chat;
 
     @FXML
@@ -46,6 +53,9 @@ public class GroupChat_con implements Initializable {
 
     @FXML
     private ListView<Data> GroupUserList;
+
+    @FXML
+    private MenuButton Phrase;
 
     @FXML
     private MenuItem text1;
@@ -71,7 +81,23 @@ public class GroupChat_con implements Initializable {
     @FXML
     private ImageView Head;
 
+    @FXML
+    private ImageView Expression_No;
+
+    @FXML
+    private ImageView Expression_Yes;
+
+    @FXML
+    private ImageView Image_No;
+
+    @FXML
+    private ImageView Image_Yes;
+
     public int GroupId;
+
+    private int ExpressionVisable = 0;
+
+    private ImageView bk;
 
     public ObservableList<MessageData> chat = FXCollections.observableArrayList();                   //群内消息记录
     public ObservableList<Data> GroupUserlist = FXCollections.observableArrayList();             //群内用户列表
@@ -96,9 +122,70 @@ public class GroupChat_con implements Initializable {
         Message.setText(text4.getText());
     }
 
+    @FXML
+    void Expression_No_Entered(MouseEvent event) {
+        Expression_Yes.setVisible(true);
+    }
 
     @FXML
-    void SendImage_Action(ActionEvent event) throws Exception{
+    void Expression_Yes_Clicked(MouseEvent event) throws Exception{
+        if(ExpressionVisable == 0)
+        {
+
+            class ExpressionRunnable implements Runnable   {
+                public void run()   {
+                    bk.setVisible(true);
+                    Expression.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            int x,y;
+                            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                                System.out.println("双击了条目");
+                                x = (int)(event.getX() / 50) + 1;
+                                y = (int)(event.getY() / 50);
+                                if( x == 6 ) x = 5;
+                                if( y == 4 ) y = 3;
+
+                                /**将值改成隐藏*/
+                                Expression.setVisible(false);
+                                ExpressionVisable = 0;
+
+                                if( y*5+x >= 10 )
+                                    Message.setText(Message.getText() + "/BQ0" + (y*5+x));
+                                else
+                                    Message.setText(Message.getText() + "/BQ00" + (y*5+x));
+                            } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
+                                System.out.println("单击了该窗口的x:" + event.getX() + "Y:" + event.getY());
+                                x = (int)(event.getX() / 50) * 50;
+                                y = (int)(event.getY() / 50) * 50;
+                                if( x == 250 ) x = 200;
+                                if( y == 200 ) y = 150;
+                                bk.setLayoutX(x);
+                                bk.setLayoutY(y);
+                            }
+                        }
+                    });
+                }
+            }
+            Expression.setVisible(true);
+            ExpressionRunnable expressionRunnable = new ExpressionRunnable();
+            new Thread(expressionRunnable).start();
+            ExpressionVisable = 1;
+        }
+        else
+        {
+            Expression.setVisible(false);
+            ExpressionVisable = 0;
+        }
+    }
+
+    @FXML
+    void Expression_Yes_Exited(MouseEvent event) {
+        Expression_Yes.setVisible(false);
+    }
+
+    @FXML
+    void Image_Yes_Clicked(MouseEvent event) throws Exception{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose File");			//打开文件窗口  名称
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Photo Files", "*.jpg", "*.png","*.bmp"));
@@ -123,6 +210,36 @@ public class GroupChat_con implements Initializable {
             send.SendMessage(img);
         }
 
+    }
+
+    @FXML
+    void Image_No_Entered(MouseEvent event) {
+        Image_Yes.setVisible(true);
+    }
+
+    @FXML
+    void Image_Yes_Exited(MouseEvent event) {
+        Image_Yes.setVisible(false);
+    }
+
+    @FXML
+    void Phrase_Entered(MouseEvent event) {
+        Phrase.setStyle("-fx-background-color : #F2F2F2");
+    }
+
+    @FXML
+    void Phrase_Exited(MouseEvent event) {
+        Phrase.setStyle("-fx-background-color :  #FFFFFF");
+    }
+
+    @FXML
+    void SendMessage_Entered(MouseEvent event) {
+        SendMessage.setStyle("-fx-background-color : #ABABAB");
+    }
+
+    @FXML
+    void SendMessage_Exited(MouseEvent event) {
+        SendMessage.setStyle("-fx-background-color :  #8F8F8F");
     }
 
     @FXML
@@ -185,6 +302,37 @@ public class GroupChat_con implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
 
+        String qz = "file:///E:/聊天器图片素材/小表情/0";
+        VBox Dvbox = new VBox(10);
+        for(int i = 0 ;i<4;i++)
+        {
+            HBox hBox = new HBox(10);
+            for(int j = 1;j<=5;j++)
+            {
+                Image image ;
+                if(i*5+j>=10)
+                    image = new Image(qz + (i*5+j) + ".png");
+                else
+                    image = new Image(qz + "0" + (i*5+j) + ".png");
+                ImageView expression = new ImageView(image);
+                expression.setFitWidth(40);
+                expression.setFitHeight(40);
+                hBox.getChildren().addAll(expression);
+            }
+            Dvbox.getChildren().addAll(hBox);
+        }
+        Expression.getChildren().add(Dvbox);
+
+        /**表情选定边框显示*/
+        String bkString = "file:///E:/聊天器图片素材/小表情/边框.png";
+        Image image = new Image(bkString);
+        bk = new ImageView(image);
+        Expression.getChildren().add(bk);
+        bk.setFitHeight(40);
+        bk.setFitWidth(40);
+        bk.setVisible(false);
+
+
         GroupId = Client_other;
         GroupChatWindows.add(this);
 
@@ -219,16 +367,89 @@ public class GroupChat_con implements Initializable {
                                     Head.setPreserveRatio(false);
                                     Head.setFitHeight(50);
                                     Head.setFitWidth(50);
-                                    Label NetAndTimeAndMessage = new Label(user.getNetName() + "  " + item.getTime() + "\n" + item.getMessage());
+                                    String LabelStr = "";
+                                    char[] labelstr = item.getMessage().toCharArray();
+                                    String ImageStr = "";
+                                    VBox vbox = new VBox(10);
+                                    HBox JBhbox = new HBox(1);
+                                    String qz = "file:///E:/聊天器图片素材/小表情/";
 
-                                    if (item.getMain() == id_main) {
+                                    if (item.getMain() == id_main) {                    //己方
+                                        Label NetAndTimeAndMessage = new Label(item.getTime() + "  " + user.getNetName());
                                         hbox.setAlignment(Pos.CENTER_RIGHT);
                                         hbox.getChildren().addAll(NetAndTimeAndMessage, Head);
-                                    } else {
+                                        vbox.setAlignment(Pos.CENTER_RIGHT);
+                                        vbox.getChildren().add(hbox);
+                                        for(int i = 0 ; i < labelstr.length ; i++){
+                                            if(labelstr[i] == '/' && labelstr[i+1] == 'B' && labelstr[i+2] == 'Q'){
+                                                ImageStr +="" + labelstr[i+3]+labelstr[i+4]+labelstr[i+5];
+                                                Label label = new Label(LabelStr);
+                                                label.setStyle("-fx-font-size: 20;");
+                                                //System.out.println("输入文本："+LabelStr+"    输入一次表情:" + qz + ImageStr + ".png");
+                                                Image bqimage = new Image(qz + ImageStr + ".png");
+                                                ImageView bqimageview = new ImageView(bqimage);
+                                                bqimageview.setFitWidth(30);
+                                                bqimageview.setFitHeight(30);
+                                                JBhbox.getChildren().addAll(label,bqimageview);
+                                                i+=5;
+                                                LabelStr = "";
+                                                ImageStr = "";
+                                            }else if(labelstr[i] == '\n'){
+                                                JBhbox.setAlignment(Pos.CENTER_RIGHT);
+                                                Label label = new Label(LabelStr);
+                                                label.setStyle("-fx-font-size: 20;");
+                                                JBhbox.getChildren().addAll(label);
+                                                vbox.getChildren().add(JBhbox);
+                                                JBhbox = new HBox(1);
+                                                LabelStr = "";
+                                            }else{
+                                                LabelStr += labelstr[i];
+                                            }
+                                        }
+                                        JBhbox.setAlignment(Pos.CENTER_RIGHT);
+                                        Label label = new Label(LabelStr);
+                                        label.setStyle("-fx-font-size: 20;");
+                                        JBhbox.getChildren().addAll(label);
+                                        vbox.getChildren().add(JBhbox);
+                                    } else {                                            //对方
+                                        Label NetAndTimeAndMessage = new Label( user.getNetName()  + "  " +item.getTime());
                                         hbox.setAlignment(Pos.CENTER_LEFT);
-                                        hbox.getChildren().addAll(Head, NetAndTimeAndMessage);
+                                        hbox.getChildren().addAll(Head,NetAndTimeAndMessage);
+                                        vbox.setAlignment(Pos.CENTER_LEFT);
+                                        vbox.getChildren().add(hbox);
+                                        for(int i = 0 ; i < labelstr.length ; i++){
+                                            if(labelstr[i] == '/' && labelstr[i+1] == 'B' && labelstr[i+2] == 'Q'){
+                                                ImageStr +="" + labelstr[i+3]+labelstr[i+4]+labelstr[i+5];
+                                                Label label = new Label(LabelStr);
+                                                label.setStyle("-fx-font-size: 20;");
+                                                //System.out.println("输入文本："+LabelStr+"    输入一次表情:" + qz + ImageStr + ".png");
+                                                Image bqimage = new Image(qz + ImageStr + ".png");
+                                                ImageView bqimageview = new ImageView(bqimage);
+                                                bqimageview.setFitWidth(30);
+                                                bqimageview.setFitHeight(30);
+                                                JBhbox.getChildren().addAll(label,bqimageview);
+                                                i+=5;
+                                                LabelStr = "";
+                                                ImageStr = "";
+                                            }else if(labelstr[i] == '\n'){
+                                                JBhbox.setAlignment(Pos.CENTER_LEFT);
+                                                Label label = new Label(LabelStr);
+                                                label.setStyle("-fx-font-size: 20;");
+                                                JBhbox.getChildren().addAll(label);
+                                                vbox.getChildren().add(JBhbox);
+                                                JBhbox = new HBox(1);
+                                                LabelStr = "";
+                                            }else{
+                                                LabelStr += labelstr[i];
+                                            }
+                                        }
+                                        JBhbox.setAlignment(Pos.CENTER_LEFT);
+                                        Label label = new Label(LabelStr);
+                                        label.setStyle("-fx-font-size: 20;");
+                                        JBhbox.getChildren().addAll(label);
+                                        vbox.getChildren().add(JBhbox);
                                     }
-                                    this.setGraphic(hbox);
+                                    this.setGraphic(vbox);
                                 }else{
                                     HBox hbox = new HBox(10);
                                     User user = AddDeleteCheckChange_friend.Select(item.getMain());

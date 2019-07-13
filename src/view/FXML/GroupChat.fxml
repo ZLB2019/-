@@ -7,16 +7,18 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GroupChat_con">
+<AnchorPane prefHeight="677.0" prefWidth="1144.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GroupChat_con">
    <children>
       <TextArea fx:id="Message" focusTraversable="false" layoutY="498.0" prefHeight="132.0" prefWidth="866.0" />
-      <ListView fx:id="Chat" focusTraversable="false" layoutY="50.0" prefHeight="408.0" prefWidth="866.0" />
-      <AnchorPane layoutX="-275.0" layoutY="-204.0" prefHeight="254.0" prefWidth="1138.0" style="-fx-background-image: url(file:///D:/美女壁纸来着/好看.jpg);">
+      <ListView fx:id="Chat" focusTraversable="false" layoutY="50.0" prefHeight="409.0" prefWidth="867.0" />
+      <AnchorPane layoutX="-275.0" layoutY="-204.0" prefHeight="254.0" prefWidth="1142.0" style="-fx-background-image: url(file:///D:/美女壁纸来着/好看.jpg);">
          <children>
             <Label fx:id="IdAndNet" alignment="CENTER" contentDisplay="CENTER" layoutX="514.0" layoutY="208.0" prefHeight="38.0" prefWidth="417.0" textFill="WHITE">
                <font>
@@ -25,10 +27,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="SendMessage" focusTraversable="false" layoutX="739.0" layoutY="634.0" mnemonicParsing="false" onAction="#SendMessage_Action" prefHeight="38.0" prefWidth="114.0" text="发送消息" />
-      <CubicCurve controlX1="-55.0" controlX2="60.0" controlY1="-68.0" controlY2="69.0" endX="150.0" fill="#1f93ffd1" layoutX="151.0" layoutY="478.0" startX="-150.0" stroke="WHITE" />
-      <CubicCurve controlX1="-55.0" controlX2="60.0" controlY1="-68.0" controlY2="69.0" endX="150.0" fill="#1f93ffce" layoutX="712.0" layoutY="475.0" startX="-150.0" stroke="WHITE" />
-      <CubicCurve controlX1="-55.0" controlX2="60.0" controlY1="-68.0" controlY2="69.0" endX="150.0" fill="#1f93ffcd" layoutX="432.0" layoutY="476.0" startX="-150.0" stroke="WHITE" />
       <ListView fx:id="GroupUserList" focusTraversable="false" layoutX="866.0" layoutY="281.0" prefHeight="349.0" prefWidth="277.0" />
       <Label layoutX="969.0" layoutY="243.0" prefHeight="38.0" prefWidth="72.0" text="群 成 员">
          <font>
@@ -36,7 +34,45 @@
          </font>
       </Label>
       <ImageView fx:id="Head" fitHeight="200.0" fitWidth="200.0" layoutX="905.0" layoutY="24.0" pickOnBounds="true" />
-      <MenuButton fx:id="Phrase" focusTraversable="false" layoutX="467.0" layoutY="634.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="114.0" text="常用语">
+      <Button fx:id="AddGroupUser" layoutX="1080.0" layoutY="634.0" mnemonicParsing="false" onAction="#AddGroupUser_Action" prefHeight="38.0" prefWidth="37.0" style="-fx-background-radius: 220000;" text="+">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TextField fx:id="FriendFind" layoutX="898.0" layoutY="638.0" opacity="0.75" prefHeight="30.0" prefWidth="173.0" promptText="邀请成员" />
+      <ImageView fitHeight="47.0" fitWidth="863.0" layoutY="459.0" onMouseEntered="#Expression_Yes_Exited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/小表情/工具栏.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Expression_No" fitHeight="30.0" fitWidth="30.0" layoutX="11.0" layoutY="464.0" onMouseEntered="#Expression_No_Entered" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/小表情/表情(未选定）.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Expression_Yes" fitHeight="30.0" fitWidth="30.0" layoutX="11.0" layoutY="464.0" onMouseClicked="#Expression_Yes_Clicked" onMouseDragExited="#Expression_Yes_Exited" onMouseExited="#Expression_Yes_Exited" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/小表情/表情(选定）.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="Expression" cache="true" layoutY="260.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" visible="false">
+         <effect>
+            <DropShadow color="#dad5d5" height="10.0" offsetX="1.0" offsetY="-1.0" radius="4.5" spread="0.01" width="10.0" />
+         </effect>
+      </AnchorPane>
+      <Line endX="-63.0" endY="278.0" layoutX="929.0" layoutY="352.0" startX="-63.0" startY="-354.0" stroke="#c9c5c5" />
+      <ImageView fx:id="Image_No" fitHeight="30.0" fitWidth="30.0" layoutX="232.0" layoutY="464.0" onMouseEntered="#Image_No_Entered" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/小表情/图片(未选定).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Image_Yes" fitHeight="30.0" fitWidth="30.0" layoutX="232.0" layoutY="464.0" onMouseClicked="#Image_Yes_Clicked" onMouseExited="#Image_Yes_Exited" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="file:///E:/聊天器图片素材/小表情/图片(选定).png" />
+         </image>
+      </ImageView>
+      <Button fx:id="SendMessage" focusTraversable="false" layoutX="749.0" layoutY="635.0" mnemonicParsing="false" onAction="#SendMessage_Action" onMouseEntered="#SendMessage_Entered" onMouseExited="#SendMessage_Exited" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: #8F8F8F;" text="发送消息 ~" textFill="WHITE" />
+      <MenuButton fx:id="Phrase" focusTraversable="false" layoutX="613.0" layoutY="635.0" mnemonicParsing="false" onMouseEntered="#Phrase_Entered" onMouseExited="#Phrase_Exited" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #ffffff; -fx-focus-traversable: 7; -fx-border-color: #CCCCCC;" text="常用语">
          <items>
             <MenuItem fx:id="text1" mnemonicParsing="false" onAction="#text1_Action" text="你好啊！" />
             <MenuItem fx:id="text2" mnemonicParsing="false" onAction="#text2_Action" text="嗨，好久不见!" />
@@ -44,12 +80,5 @@
             <MenuItem fx:id="text4" mnemonicParsing="false" onAction="#text4_Action" text="你的名字是？" />
          </items>
       </MenuButton>
-      <Button fx:id="SendImage" focusTraversable="false" layoutX="604.0" layoutY="634.0" mnemonicParsing="false" onAction="#SendImage_Action" prefHeight="38.0" prefWidth="114.0" text="发送图片" />
-      <Button fx:id="AddGroupUser" layoutX="1080.0" layoutY="634.0" mnemonicParsing="false" onAction="#AddGroupUser_Action" prefHeight="38.0" prefWidth="37.0" style="-fx-background-radius: 220000;" text="+">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <TextField fx:id="FriendFind" layoutX="898.0" layoutY="638.0" opacity="0.75" prefHeight="30.0" prefWidth="173.0" promptText="邀请成员" />
    </children>
 </AnchorPane>

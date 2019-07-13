@@ -62,20 +62,20 @@
             <Font size="22.0" />
          </font>
       </TextField>
-      <Button fx:id="GetMail" layoutX="359.0" layoutY="430.0" mnemonicParsing="false" onAction="#GetMail" prefHeight="54.0" prefWidth="164.0" style="-fx-background-color: #1C86EE;" text="获取验证码" textFill="WHITE">
+      <Button fx:id="GetMail" layoutX="359.0" layoutY="430.0" mnemonicParsing="false" onAction="#GetMail" onMouseEntered="#GetMail_Entered" onMouseExited="#GetMail_Exited" prefHeight="54.0" prefWidth="164.0" style="-fx-background-color: #1C86EE;" text="获取验证码" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="registered_YesOrNo" layoutX="146.0" layoutY="517.0" mnemonicParsing="false" onAction="#registered_YesOrNo" prefHeight="54.0" prefWidth="377.0" style="-fx-background-color: FF0000;" text="注    册" textFill="#ffffffe9">
+      <Button fx:id="registered_YesOrNo" layoutX="146.0" layoutY="517.0" mnemonicParsing="false" onAction="#registered_YesOrNo" onMouseEntered="#registered_YesOrNo_Entered" onMouseExited="#registered_YesOrNo_Exited" prefHeight="54.0" prefWidth="377.0" style="-fx-background-color: FF0000;" text="注    册" textFill="#ffffffe9">
          <font>
             <Font size="25.0" />
          </font>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
       <Label layoutX="173.0" layoutY="56.0" prefHeight="71.0" prefWidth="303.0" text="每一天，乐在沟通。" textFill="#ff554fd5">
@@ -86,7 +86,13 @@
       <Hyperlink fx:id="ReturnLogin" layoutX="409.0" layoutY="582.0" onAction="#ReturnLogin_Action" prefHeight="28.0" prefWidth="114.0" text="返 回 登 录  ↙">
          <font>
             <Font size="16.0" />
-         </font></Hyperlink>
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Hyperlink>
    </children>
    <opaqueInsets>
       <Insets />

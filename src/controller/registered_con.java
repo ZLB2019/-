@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.input.MouseEvent;
 import model.*;
 
 import javafx.scene.control.PasswordField;
@@ -36,8 +37,32 @@ public class registered_con {
 
     private String QQMailRegular = "[1-9][0-9]{5,9}@qq.com";           /**QQ邮箱的正则表达式*/
 
-      String sql;
+    private String sql;
 
+    @FXML
+    void GetMail_Entered(MouseEvent event) {
+        GetMail.setStyle("-fx-background-color :  #1E90FF ;");
+    }
+
+    @FXML
+    void GetMail_Exited(MouseEvent event) {
+        GetMail.setStyle("-fx-background-color :  #1C86EE ;");
+    }
+
+    @FXML
+    void registered_YesOrNo(ActionEvent event) {
+
+    }
+
+    @FXML
+    void registered_YesOrNo_Entered(MouseEvent event) {
+        registered_YesOrNo.setStyle("-fx-background-color :  #FF4040 ;");
+    }
+
+    @FXML
+    void registered_YesOrNo_Exited(MouseEvent event) {
+        registered_YesOrNo.setStyle("-fx-background-color :  #FF0000 ;");
+    }
 
     @FXML
     void ReturnLogin_Action(ActionEvent event) {

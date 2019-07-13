@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.AddDeleteCheckChange_friend;
 import view.CLASS.windows_screen;
@@ -18,6 +19,16 @@ public class ChangePassword_Main_con {
 
     @FXML
     private PasswordField ConfirmPassword;                  //修改密码界面  确认密码文本框
+
+    @FXML
+    void Determine_Re_Entered(MouseEvent event) {
+        Determine_Re.setStyle("-fx-background-color :  #FF4040 ;");
+    }
+
+    @FXML
+    void Determine_Re_Exited(MouseEvent event) {
+        Determine_Re.setStyle("-fx-background-color :  #FF0000 ;");
+    }
 
     /**修改密码*/
     @FXML

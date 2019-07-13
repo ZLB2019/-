@@ -13,7 +13,7 @@ public class ChatServer {
         ServerSocket server = null;								//声明ServerSocket对象
         Socket client = null;									//一个Socket对象表示一个客户端
 
-
+    
 
         server = new ServerSocket(8888);						//此时服务器在8888端口上等待客户端的访问
         System.out.println("服务器运行，等待客户端连接");
