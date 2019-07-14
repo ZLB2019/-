@@ -223,12 +223,12 @@ public class Chat_con implements Initializable {
 
     @FXML
     void Phrase_Entered(MouseEvent event) {
-        Phrase.setStyle("-fx-background-color : #F2F2F2");
+        Phrase.setStyle("-fx-background-color : #F2F2F2; -fx-focus-traversable: 7; -fx-border-color: #CCCCCC;");
     }
 
     @FXML
     void Phrase_Exited(MouseEvent event) {
-        Phrase.setStyle("-fx-background-color :  #FFFFFF");
+        Phrase.setStyle("-fx-background-color :  #FFFFFF; -fx-focus-traversable: 7; -fx-border-color: #CCCCCC;");
     }
 
     @FXML

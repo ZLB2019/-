@@ -72,7 +72,7 @@
          </image>
       </ImageView>
       <Button fx:id="SendMessage" focusTraversable="false" layoutX="749.0" layoutY="635.0" mnemonicParsing="false" onAction="#SendMessage_Action" onMouseEntered="#SendMessage_Entered" onMouseExited="#SendMessage_Exited" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: #8F8F8F;" text="发送消息 ~" textFill="WHITE" />
-      <MenuButton fx:id="Phrase" focusTraversable="false" layoutX="613.0" layoutY="635.0" mnemonicParsing="false" onMouseEntered="#Phrase_Entered" onMouseExited="#Phrase_Exited" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #ffffff; -fx-focus-traversable: 7; -fx-border-color: #CCCCCC;" text="常用语">
+      <MenuButton fx:id="Phrase" focusTraversable="false" layoutX="613.0" layoutY="635.0" mnemonicParsing="false" onMouseEntered="#Phrase_Entered" onMouseExited="#Phrase_Exited" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: #ffffff; -fx-focus-traversable: 7; -fx-border-color: #CCCCCC;" text="    常用语">
          <items>
             <MenuItem fx:id="text1" mnemonicParsing="false" onAction="#text1_Action" text="你好啊！" />
             <MenuItem fx:id="text2" mnemonicParsing="false" onAction="#text2_Action" text="嗨，好久不见!" />
